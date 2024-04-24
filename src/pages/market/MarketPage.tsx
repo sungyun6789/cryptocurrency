@@ -7,13 +7,16 @@ import { useEffect, useState } from 'react';
 import { MoreButton } from './MarketPage.css';
 import MarketFilter from '../../components/market-filter';
 import Loader from '../../components/loader';
+import useBookmark from '../../hooks/useBookmark';
+import useCurrencyType from '../../hooks/useCurrencyType';
 
 const MarketPage = () => {
   const [list, setList] = useState<Market[]>();
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(50);
-  const [currencyType, setCurrencyType] = useState<'krw' | 'usd'>('krw');
   const [viewType, setViewType] = useState<'all' | 'bookmark'>('all');
+  const { currencyType, onChangeCurrencyType } = useCurrencyType();
+  const { bookmarkData, onClickBookmark } = useBookmark();
 
   const { isLoading, data } = useQuery({
     queryKey: ['/coins/markets', page, pageSize],
@@ -45,6 +48,8 @@ const MarketPage = () => {
     setPage(page + 1);
   };
 
+  const dataByViewType = viewType === 'all' ? list : bookmarkData;
+
   return (
     <>
       <NavigationBar />
@@ -56,12 +61,17 @@ const MarketPage = () => {
             viewType={viewType}
             setViewType={setViewType}
             currencyType={currencyType}
-            setCurrencyType={setCurrencyType}
+            onChangeCurrencyType={onChangeCurrencyType}
             pageSize={pageSize}
             setPageSize={setPageSize}
           />
-          <MarketTable data={list} currencyType={currencyType} />
-          <MoreButton onClick={onClickMore}>+ 더보기</MoreButton>
+          <MarketTable
+            data={dataByViewType}
+            currencyType={currencyType}
+            bookmarkData={bookmarkData}
+            onClickBookmark={onClickBookmark}
+          />
+          {viewType === 'all' && <MoreButton onClick={onClickMore}>+ 더보기</MoreButton>}
         </>
       )}
     </>

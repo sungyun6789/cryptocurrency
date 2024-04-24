@@ -1,16 +1,17 @@
 import type { Dispatch, SetStateAction } from 'react';
 import { Block } from './MarketFilter.css';
+import type { CurrencyType } from '../../hooks/useCurrencyType';
 
 type Props = {
   viewType: 'all' | 'bookmark';
   setViewType: Dispatch<SetStateAction<'all' | 'bookmark'>>;
-  currencyType: 'krw' | 'usd';
-  setCurrencyType: Dispatch<SetStateAction<'krw' | 'usd'>>;
+  currencyType: CurrencyType;
+  onChangeCurrencyType: (currency: CurrencyType) => void;
   pageSize: number;
   setPageSize: Dispatch<SetStateAction<number>>;
 };
 
-const MarketFilter = ({ viewType, setViewType, currencyType, setCurrencyType, pageSize, setPageSize }: Props) => {
+const MarketFilter = ({ viewType, setViewType, currencyType, onChangeCurrencyType, pageSize, setPageSize }: Props) => {
   return (
     <Block>
       <select value={viewType} onChange={(e) => setViewType(e.target.value as 'all' | 'bookmark')}>
@@ -18,7 +19,7 @@ const MarketFilter = ({ viewType, setViewType, currencyType, setCurrencyType, pa
         <option value="bookmark">북마크보기</option>
       </select>
 
-      <select value={currencyType} onChange={(e) => setCurrencyType(e.target.value as 'krw' | 'usd')}>
+      <select value={currencyType} onChange={(e) => onChangeCurrencyType(e.target.value as CurrencyType)}>
         <option value="krw">KRW 보기</option>
         <option value="usd">USD 보기</option>
       </select>
