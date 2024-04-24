@@ -1,5 +1,11 @@
+import NavigationBar from '../../components/navigation-bar';
+
 const BookmarkPage = () => {
-  return <div>북마크 목록 페이지</div>;
+  return (
+    <>
+      <NavigationBar />
+    </>
+  );
 };
 
 export default BookmarkPage;

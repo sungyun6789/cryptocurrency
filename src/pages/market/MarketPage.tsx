@@ -1,5 +1,11 @@
+import NavigationBar from '../../components/navigation-bar';
+
 const MarketPage = () => {
-  return <div>가상자산 시세 목록 페이지</div>;
+  return (
+    <>
+      <NavigationBar />
+    </>
+  );
 };
 
 export default MarketPage;
