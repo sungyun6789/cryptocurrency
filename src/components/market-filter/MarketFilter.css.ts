@@ -4,5 +4,11 @@ export const Block = styled.div`
   display: flex;
   justify-content: flex-end;
   gap: 30px;
-  margin: 30px 0;
+  padding: 20px;
+`;
+
+export const Select = styled.select`
+  font-size: 15px;
+  border: none;
+  outline: none;
 `;
