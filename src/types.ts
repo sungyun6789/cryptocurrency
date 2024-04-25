@@ -42,3 +42,44 @@ export type TableData = Pick<
   | 'total_volume'
   | 'market_cap_rank'
 >;
+
+export type Coin = {
+  market_cap_rank: number;
+  image: {
+    large: string;
+    small: string;
+    thumb: string;
+  };
+  name: string;
+  symbol: string;
+  description: {
+    [key in 'ko' | 'en']?: string;
+  };
+  links: {
+    homepage: string[];
+  };
+  market_data: {
+    market_cap_change_percentage_24h: number;
+    total_volume: {
+      [key: string]: number;
+    };
+    current_price: {
+      [key: string]: number;
+    };
+    price_change_percentage_1h_in_currency: {
+      [key: string]: number;
+    };
+    price_change_percentage_24h_in_currency: {
+      [key: string]: number;
+    };
+    price_change_percentage_7d_in_currency: {
+      [key: string]: number;
+    };
+    market_cap: {
+      [key: string]: number;
+    };
+  };
+  localization: {
+    [key: string]: string;
+  };
+};
