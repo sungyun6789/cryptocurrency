@@ -53,7 +53,7 @@ const MarketPage = () => {
   return (
     <>
       <NavigationBar />
-      {isLoading ? (
+      {isLoading || !dataByViewType ? (
         <Loader />
       ) : (
         <>

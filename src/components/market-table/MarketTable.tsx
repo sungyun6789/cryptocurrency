@@ -11,6 +11,8 @@ type Props = {
 };
 
 const MarketTable = ({ data, currencyType, bookmarkData, onClickBookmark }: Props) => {
+  if (data && data.length === 0) return <div>데이터가 존재하지 않습니다.</div>;
+
   return (
     <Block>
       <ColumnWrapper>
