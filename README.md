@@ -1,30 +1,48 @@
-# React + TypeScript + Vite
+# 암호화폐 정보 조회 사이트
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 프로젝트 구조
 
-Currently, two official plugins are available:
+기본적으로 컴포넌트(페이지)의 스타일과 기능을 분리했고 토스트 상태 관리를 위해 context를 사용했습니다.<br/>
+그리고 반복되는 기능을 줄이기 위해 작성한 커스텀 훅은 별도의 폴더로 분리해서 관리하고 있고 전역적으로 사용되는 타입은 types.ts 파일에서 관리했습니다.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```
+├── components
+│   │   component
+│   │   │   index.ts
+│   │   │   Component.css.ts
+│   └── └── Component.tsx
+├── pages
+│   │   page
+│   │   │   Page.css.ts
+│   └── └── Page.tsx
+├── contexts
+├── hooks
+├── types.ts
+└── ...
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## 실행 방법
+
+```shell
+yarn -v // 1.22.19
+yarn install
+yarn start // http://localhost:5173
+```
+
+## 기술 스택
+
+- react
+- typescript
+- react-router-dom
+- react-query (서버 상태를 편하게 관리하기 위해 사용)
+- emotion (스타일 관리를 위해 사용)
+
+## 커밋 규칙
+
+| 타입     | 설명        |
+| -------- | ----------- |
+| feat     | 기능 개발   |
+| fix      | 버그 수정   |
+| refactor | 기능 개선   |
+| chore    | 패키지 관리 |
+| docs     | 문서 작업   |
