@@ -153,7 +153,3 @@ export const MarketCapWrapper = styled.div`
   width: 100%;
   text-align: right;
 `;
-
-export const BookmarkIcon = styled.div`
-  cursor: pointer;
-`;
