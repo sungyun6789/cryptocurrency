@@ -34,7 +34,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <ToastProvier>
       <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
+        <main>
+          <RouterProvider router={router} />
+        </main>
       </QueryClientProvider>
       <Toast />
     </ToastProvier>

@@ -4,7 +4,6 @@ export const Block = styled.div`
   display: flex;
   flex-direction: column;
   gap: 50px;
-  padding: 20px;
 `;
 
 export const FlexBox = styled.div`

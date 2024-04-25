@@ -4,6 +4,10 @@
   margin: 0;
 }
 
+main {
+  padding: 80px;
+}
+
 a {
   text-decoration: none;
   color: #000;
